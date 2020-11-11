@@ -19,13 +19,23 @@
         <h1> {{ titolo }} </h1>
 
         <div class="inserimento">
+            <!-- Applico il 'v-model' per tracciare l'input utente in nuovo_item,
+            via 'v-on:keyup.n' intercetto con n = 13 il tasto 'Enter', quando questo accade
+            richiamo la funzione 'add_item' per inserire l'elemento nella to-do-list -->
             <input v-model="nuovo_item" v-on:keyup.13="add_item" type="text" placeholder="Scrivi una attività">
-
+            <!-- Intercetto il click sul button, quando questo accade richiamo
+            la funzione 'add_item' per inserire l'elemento nella to-do-list -->
             <button @click="add_item" type="button" name="button">Aggiungi</button>
+
         </div>
 
         <ul>
+            <!-- Tramite 'v-for' stampo dinamicamente gli 'li',
+            tanti quanto gli elementi che sono presenti in list -->
             <li v-for="(item,index) in list">
+                <!-- Intercetto il click sull'icona, quando questo accade
+                richiamo la funzione 'del_item(p)' per cancellare il to-do
+                selezionato -->
                 <i @click="del_item(index)" class="fas fa-minus"></i>
                 <p>{{ item }}</p>
             </li>
