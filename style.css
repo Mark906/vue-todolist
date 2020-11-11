@@ -20,4 +20,21 @@ ul {
 
 ul li {
     padding: 15px;
+    width: 300px;
+    margin: 0 auto;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+
+ul li>i:hover {
+    cursor: pointer;
+}
+
+ul li>p {
+    display: inline;
+}
+
+ul li>i {
+    float: left;
+    color: red;
 }

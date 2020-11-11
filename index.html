@@ -11,6 +11,7 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
 <body>
     <div id="root">
@@ -24,8 +25,9 @@
         </div>
 
         <ul>
-            <li @click="del_item(index)" v-for="(item,index) in list">
-                <i class="fas fa-check">{{ item }}</i>
+            <li v-for="(item,index) in list">
+                <i @click="del_item(index)" class="fas fa-minus"></i>
+                <p>{{ item }}</p>
             </li>
         </ul>
     </div>
