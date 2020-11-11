@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+
+        <h1> {{ titolo }} </h1>
+
+        <div class="inserimento">
+            <input v-model="nuovo_item" v-on:keyup.13="add_item" type="text" placeholder="Scrivi una attività">
+
+            <button @click="add_item" type="button" name="button">Aggiungi</button>
+        </div>
+
+        <ul>
+            <li @click="del_item(index)" v-for="(item,index) in list">
+                <i class="fas fa-check">{{ item }}</i>
+            </li>
+        </ul>
+    </div>
+
+    <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>
