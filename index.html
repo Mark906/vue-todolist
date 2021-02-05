@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-    <style>
-        body{
-            text-align: center;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
@@ -22,10 +18,10 @@
             <!-- Applico il 'v-model' per tracciare l'input utente in nuovo_item,
             via 'v-on:keyup.n' intercetto con n = 13 il tasto 'Enter', quando questo accade
             richiamo la funzione 'add_item' per inserire l'elemento nella to-do-list -->
-            <input v-model="nuovo_item" v-on:keyup.13="add_item" type="text" placeholder="Scrivi una attività">
+            <input v-model="nuovo_item" v-on:keyup.13="add_item(nuovo_item)" type="text" placeholder="Scrivi una attività">
             <!-- Intercetto il click sul button, quando questo accade richiamo
             la funzione 'add_item' per inserire l'elemento nella to-do-list -->
-            <button @click="add_item" type="button" name="button">Aggiungi</button>
+            <button @click="add_item(nuovo_item)" type="button" name="button">Aggiungi</button>
 
         </div>
 
@@ -37,7 +33,9 @@
                 richiamo la funzione 'del_item(p)' per cancellare il to-do
                 selezionato -->
                 <i @click="del_item(index)" class="fas fa-minus"></i>
-                <p>{{ item }}</p>
+                <i @click="check_item(item)" class="fas fa-check"></i>
+                <p :class="check_item(item.check_i)"> {{ item.todo }} </p>
+                <p> {{ item.check_i }} </p>
             </li>
         </ul>
     </div>
